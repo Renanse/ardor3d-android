@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="match_parent"
+	android:layout_height="match_parent" android:weightSum="1">
+
+	<ImageView android:layout_width="wrap_content" android:src="@drawable/ardor3d_white"
+		android:layout_height="wrap_content" android:id="@+id/preview_image"
+		android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+		android:layout_marginLeft="16dip" android:layout_marginTop="16dip" />
+
+	<TextView android:textAppearance="?android:attr/textAppearanceLarge"
+		android:layout_width="wrap_content" android:text="@string/example_runner"
+		android:id="@+id/title_label" android:layout_height="wrap_content"
+		android:layout_alignTop="@+id/preview_image" android:layout_toRightOf="@+id/preview_image"
+		android:layout_marginLeft="10dip" />
+
+	<Button android:id="@+id/play_button" android:layout_width="wrap_content"
+		android:text="@string/run" android:layout_height="wrap_content"
+		android:layout_below="@+id/title_label" android:layout_alignLeft="@+id/title_label"
+		android:layout_marginTop="10dip" android:paddingLeft="10dip"
+		android:paddingRight="10dip" />
+
+	<LinearLayout android:layout_width="wrap_content"
+		android:layout_height="100dip" android:layout_below="@+id/preview_image"
+		android:layout_alignLeft="@+id/preview_image" android:background="#ff444444"
+		android:layout_marginTop="10dip" android:layout_marginRight="16dip"
+		android:padding="5dip" android:id="@+id/descr_layout">
+		<ScrollView android:layout_width="fill_parent"
+			android:layout_height="fill_parent">
+			<TextView android:textAppearance="?android:attr/textAppearanceMedium"
+				android:layout_width="wrap_content" android:text="@string/intro_text"
+				android:id="@+id/description_label" android:layout_height="wrap_content" />
+		</ScrollView>
+	</LinearLayout>
+
+	<ListView android:layout_width="match_parent"
+		android:layout_alignLeft="@+id/descr_layout" android:layout_below="@+id/descr_layout"
+		android:layout_height="fill_parent" android:layout_marginRight="16dip"
+		android:layout_marginBottom="16dip" android:layout_marginTop="10dip"
+		android:id="@+id/examples_list" android:entries="@array/example_names" />
+
+</RelativeLayout>

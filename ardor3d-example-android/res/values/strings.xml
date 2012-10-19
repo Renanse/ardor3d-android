@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Ardor3D Examples</string>
+
+	<string name="example_runner">Ardor3D Example Runner</string>
+	<string name="examples_name">Ardor3D Example</string>
+
+	<string name="run">Run</string>
+
+	<string name="intro_text">Choose from one of the Ardor3D examples below. Use
+		your finger to control where the camera points. Hit the back button to
+		return to this screen.</string>
+
+	<string-array name="example_names">
+		<item>Box Example</item>
+		<item>Shapes Example</item>
+		<item>Multipass Texture Example</item>
+		<item>Rocket Particle Example</item>
+	</string-array>
+
+	<string-array name="descriptions">
+		<item>The traditional first Ardor3D example - a spinning 3d box.
+		</item>
+		<item>A display of the various simple shapes provided by Ardor3D.
+		</item>
+		<item>Demonstration of using multiple rendering passes.
+		</item>
+		<item>Demonstration of particle effects.
+		</item>
+	</string-array>
+</resources>
