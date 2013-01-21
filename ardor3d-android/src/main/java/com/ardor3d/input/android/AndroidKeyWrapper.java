@@ -53,21 +53,21 @@ public class AndroidKeyWrapper implements KeyboardWrapper {
         final Key pressed = AndroidKey.findByCode(e.getKeyCode());
         if (pressed != null) {
             if (!_pressedList.contains(pressed)) {
-                _upcomingEvents.add(new KeyEvent(pressed, KeyState.DOWN, e.getDisplayLabel()));
+                _upcomingEvents.add(new KeyEvent(pressed, KeyState.DOWN, (char) e.getUnicodeChar()));
                 _pressedList.add(pressed);
             }
         } else {
-            Log.w(AndroidCanvas.TAG, "AndroidKeyWrapper.keyPressed - key not found " + e.getDisplayLabel());
+            Log.w(AndroidCanvas.TAG, "AndroidKeyWrapper.keyPressed - key not found " + (char) e.getUnicodeChar());
         }
     }
 
     public synchronized void keyReleased(final android.view.KeyEvent e) {
         final Key released = AndroidKey.findByCode(e.getKeyCode());
         if (released != null) {
-            _upcomingEvents.add(new KeyEvent(released, KeyState.UP, e.getDisplayLabel()));
+            _upcomingEvents.add(new KeyEvent(released, KeyState.UP, (char) e.getUnicodeChar()));
             _pressedList.remove(released);
         } else {
-            Log.w(AndroidCanvas.TAG, "AndroidKeyWrapper.keyReleased - key not found " + e.getDisplayLabel());
+            Log.w(AndroidCanvas.TAG, "AndroidKeyWrapper.keyReleased - key not found " + (char) e.getUnicodeChar());
         }
     }
 
