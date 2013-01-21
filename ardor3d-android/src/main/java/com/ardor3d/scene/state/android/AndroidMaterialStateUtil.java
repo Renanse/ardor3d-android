@@ -51,10 +51,10 @@ public abstract class AndroidMaterialStateUtil {
                     record);
             AndroidMaterialStateUtil.applyColor(gl, ColorMaterial.Diffuse, state.getDiffuse(), state.getBackDiffuse(),
                     record);
-            AndroidMaterialStateUtil.applyColor(gl, ColorMaterial.Emissive, state.getEmissive(), state
-                    .getBackEmissive(), record);
-            AndroidMaterialStateUtil.applyColor(gl, ColorMaterial.Specular, state.getSpecular(), state
-                    .getBackSpecular(), record);
+            AndroidMaterialStateUtil.applyColor(gl, ColorMaterial.Emissive, state.getEmissive(),
+                    state.getBackEmissive(), record);
+            AndroidMaterialStateUtil.applyColor(gl, ColorMaterial.Specular, state.getSpecular(),
+                    state.getBackSpecular(), record);
 
             // set our shine
             AndroidMaterialStateUtil.applyShininess(gl, state.getShininess(), state.getBackShininess(), record);
@@ -140,6 +140,9 @@ public abstract class AndroidMaterialStateUtil {
                 return record.colorMaterial == ColorMaterial.Specular;
             case Emissive:
                 return record.colorMaterial == ColorMaterial.Emissive;
+            case None:
+            case AmbientAndDiffuse:
+                return false;
         }
         return false;
     }

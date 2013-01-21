@@ -24,7 +24,6 @@ import javax.microedition.khronos.opengles.GL11;
 
 import com.ardor3d.image.ImageDataFormat;
 import com.ardor3d.image.PixelDataType;
-import com.ardor3d.image.TextureStoreFormat;
 import com.ardor3d.image.Texture.ApplyMode;
 import com.ardor3d.image.Texture.CombinerFunctionAlpha;
 import com.ardor3d.image.Texture.CombinerFunctionRGB;
@@ -36,6 +35,7 @@ import com.ardor3d.image.Texture.DepthTextureCompareMode;
 import com.ardor3d.image.Texture.DepthTextureMode;
 import com.ardor3d.image.Texture.MagnificationFilter;
 import com.ardor3d.image.Texture.MinificationFilter;
+import com.ardor3d.image.TextureStoreFormat;
 import com.ardor3d.renderer.state.TextureState.CorrectionType;
 import com.ardor3d.util.Ardor3dException;
 
@@ -70,18 +70,9 @@ public abstract class AndroidTextureUtil {
                 return GL10.GL_LUMINANCE;
             case LuminanceAlpha:
                 return GL10.GL_LUMINANCE_ALPHA;
-            case Depth:
-            case BGR:
-            case BGRA:
-            case Red:
-            case Blue:
-            case Green:
-            case ColorIndex:
-            case StencilIndex:
-            case Intensity:
+            default:
                 throw new Error("Unsupported format: " + format);
         }
-        throw new IllegalArgumentException("Incorrect format set: " + format);
     }
 
     public static int getGLPixelFormatFromStoreFormat(final TextureStoreFormat format) {
@@ -151,9 +142,9 @@ public abstract class AndroidTextureUtil {
             case Depth24:
             case Depth32:
             case Depth32F:
+            default:
                 throw new Error("Unsupported format: " + format);
         }
-        throw new IllegalArgumentException("Incorrect format set: " + format);
     }
 
     public static int getGLDepthTextureMode(final DepthTextureMode mode) {

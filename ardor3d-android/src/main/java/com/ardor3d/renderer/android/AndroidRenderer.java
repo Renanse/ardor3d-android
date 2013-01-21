@@ -762,7 +762,7 @@ public class AndroidRenderer extends AbstractRenderer {
             } else if (indices.getBuffer() instanceof ShortBuffer) {
                 dataFormat = GL10.GL_UNSIGNED_SHORT;
             } else {
-                Log.w(AndroidCanvas.TAG, "Unable to render mesh with indices buffer of type: "
+                Log.w(AndroidCanvas.TAG, "uh oh... Unable to render mesh with indices buffer of type: "
                         + indices.getBuffer().getClass());
                 return;
             }
@@ -790,7 +790,7 @@ public class AndroidRenderer extends AbstractRenderer {
                     dataFormat = GL10.GL_UNSIGNED_SHORT;
                 } else {
                     Log.w(AndroidCanvas.TAG, "Unable to render mesh with indices buffer of type: "
-                            + indices.getBuffer().getClass());
+                            + indices.getBuffer().getClass() + " - section: " + i);
                     return;
                 }
                 _gl.glDrawElements(glIndexMode, count, dataFormat, indices.getBuffer());

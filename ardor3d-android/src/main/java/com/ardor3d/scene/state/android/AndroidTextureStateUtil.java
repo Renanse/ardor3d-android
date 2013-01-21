@@ -966,8 +966,9 @@ public abstract class AndroidTextureStateUtil {
                 return GL10.GL_TEXTURE_2D;
             case CubeMap:
                 return GL11ExtensionPack.GL_TEXTURE_CUBE_MAP;
+            default:
+                throw new IllegalArgumentException("unsupported texture type: " + type);
         }
-        throw new IllegalArgumentException("invalid texture type: " + type);
     }
 
     public static int getGLCubeMapFace(final TextureCubeMap.Face face) {

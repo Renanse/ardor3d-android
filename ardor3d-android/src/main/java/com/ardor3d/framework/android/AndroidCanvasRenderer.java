@@ -21,16 +21,18 @@ package com.ardor3d.framework.android;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import android.util.Log;
+
 import com.ardor3d.framework.CanvasRenderer;
 import com.ardor3d.framework.DisplaySettings;
 import com.ardor3d.framework.Scene;
 import com.ardor3d.math.ColorRGBA;
 import com.ardor3d.math.Vector3;
 import com.ardor3d.renderer.Camera;
+import com.ardor3d.renderer.Camera.ProjectionMode;
 import com.ardor3d.renderer.ContextManager;
 import com.ardor3d.renderer.RenderContext;
 import com.ardor3d.renderer.Renderer;
-import com.ardor3d.renderer.Camera.ProjectionMode;
 import com.ardor3d.renderer.android.AndroidContextCapabilities;
 import com.ardor3d.renderer.android.AndroidRenderer;
 
@@ -63,6 +65,11 @@ public class AndroidCanvasRenderer implements CanvasRenderer {
         _doSwap = doSwap;
 
         final AndroidContextCapabilities caps = new AndroidContextCapabilities(_renderer.getGL());
+        Log.i(AndroidCanvas.TAG, "Display Vendor: " + caps.getDisplayVendor());
+        Log.i(AndroidCanvas.TAG, "Display Renderer: " + caps.getDisplayRenderer());
+        Log.i(AndroidCanvas.TAG, "Display Version: " + caps.getDisplayVersion());
+        Log.i(AndroidCanvas.TAG, "Shading Language Version: " + caps.getShadingLanguageVersion());
+
         _currentContext = new RenderContext(this, caps, null);
 
         ContextManager.addContext(this, _currentContext);
