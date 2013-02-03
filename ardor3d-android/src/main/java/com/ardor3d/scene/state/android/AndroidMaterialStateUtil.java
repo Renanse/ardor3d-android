@@ -214,8 +214,9 @@ public abstract class AndroidMaterialStateUtil {
                 return GL10.GL_EMISSION;
             case Specular:
                 return GL10.GL_SPECULAR;
+            default:
+                throw new IllegalArgumentException("invalid color material setting: " + material);
         }
-        throw new IllegalArgumentException("invalid color material setting: " + material);
     }
 
     /**

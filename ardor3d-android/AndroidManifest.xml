@@ -20,5 +20,8 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="com.ardor3d.framework.android">
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
     <application/>
 </manifest>

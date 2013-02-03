@@ -230,8 +230,7 @@ public abstract class AndroidTextureStateUtil {
                             Log.w(AndroidCanvas.TAG, "AndroidTextureState.load - This card does not support Cubemaps.");
                         }
                         break;
-                    case OneDimensional:
-                    case ThreeDimensional:
+                    default:
                         Log.w(AndroidCanvas.TAG, "AndroidTextureState.update - " + texture.getType()
                                 + " not supported by this renderer.");
                         break;
@@ -275,8 +274,7 @@ public abstract class AndroidTextureStateUtil {
                             return;
                         }
                         break;
-                    case OneDimensional:
-                    case ThreeDimensional:
+                    default:
                         Log.w(AndroidCanvas.TAG, "AndroidTextureState.update - " + texture.getType()
                                 + " not supported by this renderer.");
                         break;

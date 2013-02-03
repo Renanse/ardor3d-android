@@ -85,12 +85,12 @@ public class AndroidMouseWrapper implements MouseWrapper {
                 }
                 addNewState(event, buttons);
             } else if ((type & MotionEvent.ACTION_MASK) == MotionEvent.ACTION_POINTER_DOWN) {
-                final int pointIndex = (type & MotionEvent.ACTION_POINTER_ID_MASK) >> MotionEvent.ACTION_POINTER_ID_SHIFT;
+                final int pointIndex = (type & MotionEvent.ACTION_POINTER_INDEX_MASK) >> MotionEvent.ACTION_POINTER_INDEX_SHIFT;
                 final MouseButton button = getButtonForPointerIndex(pointIndex);
                 buttons.put(button, ButtonState.DOWN);
                 addNewState(event, buttons);
             } else if ((type & MotionEvent.ACTION_MASK) == MotionEvent.ACTION_POINTER_UP) {
-                final int pointIndex = (type & MotionEvent.ACTION_POINTER_ID_MASK) >> MotionEvent.ACTION_POINTER_ID_SHIFT;
+                final int pointIndex = (type & MotionEvent.ACTION_POINTER_INDEX_MASK) >> MotionEvent.ACTION_POINTER_INDEX_SHIFT;
                 final MouseButton button = getButtonForPointerIndex(pointIndex);
                 buttons.put(button, ButtonState.UP);
                 addNewState(event, buttons);
