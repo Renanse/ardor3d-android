@@ -53,6 +53,7 @@ public class AndroidCanvas extends GLSurfaceView implements com.ardor3d.framewor
         // Uncomment if you need to debug things.
         // setDebugFlags(GLSurfaceView.DEBUG_CHECK_GL_ERROR | GLSurfaceView.DEBUG_LOG_GL_CALLS);
 
+        setEGLConfigChooser(8, 8, 8, 8, _settings.getDepthBits(), _settings.getStencilBits());
         setRenderer(this);
         setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
     }
