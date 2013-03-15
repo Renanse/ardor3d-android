@@ -90,7 +90,9 @@ public class AndroidCanvas extends GLSurfaceView implements com.ardor3d.framewor
         _canvasRenderer.draw();
 
         _updated = false;
-        _latch.countDown();
+        if (_latch != null) {
+            _latch.countDown();
+        }
     }
 
     public void onSurfaceChanged(final GL10 gl, final int width, final int height) {

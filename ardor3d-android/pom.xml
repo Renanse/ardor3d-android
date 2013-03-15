@@ -13,7 +13,7 @@
     </properties>
 
     <scm>
-        <connection>scm:svn:http://ardorlabs.svn.cvsdude.com/ardor3dandroid/trunk/ardor3d-android</connection>
+        <connection>scm:git:https://github.com/Renanse/ardor3d-android.git</connection>
     </scm>
 
     <repositories>
@@ -65,17 +65,17 @@
 		<dependency>
 		  <groupId>com.ardor3d</groupId>
 		  <artifactId>ardor3d-core</artifactId>
-		  <version>0.8-SNAPSHOT</version>
+		  <version>0.9-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 		  <groupId>com.google.guava</groupId>
 		  <artifactId>guava</artifactId>
-		  <version>13.0.1</version>
+		  <version>14.0</version>
 		</dependency>
         <dependency>
             <groupId>com.google.android</groupId>
             <artifactId>android</artifactId>
-            <version>4.0.1.2</version>
+            <version>4.1.1.4</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
