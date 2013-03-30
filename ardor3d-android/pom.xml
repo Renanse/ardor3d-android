@@ -18,8 +18,8 @@
 
     <repositories>
         <repository>
-            <id>ardor3d.public.release</id>
-            <url>http://ardor3d.com:8081/nexus/content/groups/public</url>
+            <id>ardor3d.release</id>
+            <url>http://ardor3d.com:8081/nexus/content/repositories/releases</url>
 			<releases>
 				<enabled>true</enabled>
 				<updatePolicy>always</updatePolicy>
@@ -27,20 +27,6 @@
 			</releases>
 			<snapshots>
 				<enabled>false</enabled>
-				<updatePolicy>never</updatePolicy>
-				<checksumPolicy>fail</checksumPolicy>
-			</snapshots>
-        </repository>
-        <repository>
-            <id>ardor3d.public.snapshot</id>
-            <url>http://ardor3d.com:8081/nexus/content/groups/public-snapshots</url>
-			<releases>
-				<enabled>false</enabled>
-				<updatePolicy>always</updatePolicy>
-				<checksumPolicy>warn</checksumPolicy>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
 				<updatePolicy>never</updatePolicy>
 				<checksumPolicy>fail</checksumPolicy>
 			</snapshots>
