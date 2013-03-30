@@ -34,6 +34,7 @@ import android.util.Log;
 
 import com.ardor3d.framework.android.AndroidCanvas;
 import com.ardor3d.image.ImageDataFormat;
+import com.ardor3d.image.PixelDataType;
 import com.ardor3d.image.Texture;
 import com.ardor3d.image.Texture1D;
 import com.ardor3d.image.Texture2D;
@@ -265,10 +266,12 @@ public class AndroidRenderer extends AbstractRenderer {
         _inOrthoMode = false;
     }
 
-    public void grabScreenContents(final ByteBuffer buff, final ImageDataFormat format, final int x, final int y,
-            final int w, final int h) {
+    public void grabScreenContents(final ByteBuffer store, final ImageDataFormat format, final PixelDataType type,
+            final int x, final int y, final int w, final int h) {
         final int pixFormat = AndroidTextureUtil.getGLPixelFormat(format);
-        _gl.glReadPixels(x, y, w, h, pixFormat, GL10.GL_UNSIGNED_BYTE, buff);
+        final int pixDataType = AndroidTextureUtil.getGLPixelDataType(type);
+
+        _gl.glReadPixels(x, y, w, h, pixFormat, pixDataType, store);
     }
 
     public void draw(final Spatial s) {
