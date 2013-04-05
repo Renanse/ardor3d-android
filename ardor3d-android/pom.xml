@@ -121,7 +121,7 @@
 	            <configuration>
 	              <manifestLocation>target/classes/META-INF</manifestLocation>
 	              <instructions>
-	                <Bundle-SymbolicName>${pom.groupId}.${pom.artifactId}</Bundle-SymbolicName>
+	                <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
 	                <Bundle-RequiredExecutionEnvironment>JavaSE-1.6</Bundle-RequiredExecutionEnvironment>
 	              </instructions>
 	            </configuration>
