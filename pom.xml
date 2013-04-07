@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <groupId>com.ardor3d</groupId>
+    <artifactId>ardor3d-android-parent</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Ardor Android - Parent POM</name>
+    
+    <modules>
+        <module>ardor3d-android</module>
+        <module>ardor3d-android-example</module>
+    </modules>
+  
+    <scm>
+        <connection>scm:git:https://github.com/Renanse/ardor3d-android.git</connection>
+    </scm>
+
+    <repositories>
+        <repository>
+            <id>ardor3d.release</id>
+            <url>http://ardor3d.com:8081/nexus/content/repositories/releases</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+                <updatePolicy>never</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>ardor3d.snapshot</id>
+            <url>http://ardor3d.com:8081/nexus/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>Ardor3D-releases</id>
+            <name>Ardor3D releases</name>
+            <url>http://ardor3d.com:8081/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>Ardor3D-snapshots</id>
+            <name>Ardor3D snapshots</name>
+            <url>http://ardor3d.com:8081/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+  
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <android.platform.version>4.1.1.4</android.platform.version>
+        <android.sdk.version>15</android.sdk.version>
+        <ardor3d.version>0.9-SNAPSHOT</ardor3d.version>
+    </properties>
+  
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.google.android</groupId>
+                <artifactId>android</artifactId>
+                <version>${android.platform.version}</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.0</version>
+                    <configuration>
+                        <source>1.6</source>
+                        <target>1.6</target>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </plugin>
+      
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>2.4</version>
+                </plugin>
+      
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.14</version>
+                </plugin>
+      
+                <plugin>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>2.4.1</version>
+                </plugin>
+      
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.4</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
