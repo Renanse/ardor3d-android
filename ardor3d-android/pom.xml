@@ -2,152 +2,28 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.ardor3d</groupId>
+        <artifactId>ardor3d-android-parent</artifactId>
+        <version>0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+  
     <groupId>com.ardor3d</groupId>
     <artifactId>ardor3d-android</artifactId>
-    <version>0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>ardor3d-android</name>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
-    <scm>
-        <connection>scm:git:https://github.com/Renanse/ardor3d-android.git</connection>
-    </scm>
-
-    <repositories>
-        <repository>
-            <id>ardor3d.release</id>
-            <url>http://ardor3d.com:8081/nexus/content/repositories/releases</url>
-			<releases>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-				<checksumPolicy>warn</checksumPolicy>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-				<updatePolicy>never</updatePolicy>
-				<checksumPolicy>fail</checksumPolicy>
-			</snapshots>
-        </repository>
-        <repository>
-            <id>ardor3d.snapshot</id>
-            <url>http://ardor3d.com:8081/nexus/content/repositories/snapshots</url>
-			<releases>
-				<enabled>false</enabled>
-				<updatePolicy>always</updatePolicy>
-				<checksumPolicy>warn</checksumPolicy>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>never</updatePolicy>
-				<checksumPolicy>fail</checksumPolicy>
-			</snapshots>
-        </repository>
-    </repositories>
+    <name>Ardor 3D Android</name>
 
     <dependencies>
-		<dependency>
-		  <groupId>com.ardor3d</groupId>
-		  <artifactId>ardor3d-core</artifactId>
-		  <version>0.9-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-		  <groupId>com.google.guava</groupId>
-		  <artifactId>guava</artifactId>
-		  <version>14.0.1</version>
-		</dependency>
         <dependency>
             <groupId>com.google.android</groupId>
             <artifactId>android</artifactId>
-            <version>4.1.1.4</version>
-            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.ardor3d</groupId>
+            <artifactId>ardor3d-core</artifactId>
+            <version>${ardor3d.version}</version>
         </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>copy-dependencies</id>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <phase>validate</phase>
-                        <configuration>
-                            <!--<includeScope>provided</includeScope>-->
-                            <!--<includeScope>runtime</includeScope>-->
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.3.1</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
-                <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.6</version>
-            </plugin>
-            <plugin>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>2.0</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-install-plugin</artifactId>
-                <version>2.3.1</version>
-            </plugin>
-	      	<plugin>
-	            <groupId>org.apache.felix</groupId>
-	            <artifactId>maven-bundle-plugin</artifactId>
-	            <version>2.3.4</version>
-	            <extensions>true</extensions>
-	            <configuration>
-	              <manifestLocation>target/classes/META-INF</manifestLocation>
-	              <instructions>
-	                <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
-	                <Bundle-RequiredExecutionEnvironment>JavaSE-1.6</Bundle-RequiredExecutionEnvironment>
-	              </instructions>
-	            </configuration>
-	            <executions>
-	              <execution>
-	                <id>bundle-manifest</id>
-	                <phase>process-classes</phase>
-	                <goals>
-	                  <goal>manifest</goal>
-	                </goals>
-	              </execution>
-	            </executions>
-	        </plugin>
-        </plugins>
-    </build>
-
-    <distributionManagement>
-        <repository>
-            <id>Ardor3D-releases</id>
-            <name>Ardor3D releases</name>
-            <url>http://ardor3d.com:8081/nexus/content/repositories/releases</url>
-        </repository>
-        <snapshotRepository>
-            <id>Ardor3D-snapshots</id>
-            <name>Ardor3D snapshots</name>
-            <url>http://ardor3d.com:8081/nexus/content/repositories/snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
 </project>
