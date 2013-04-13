@@ -8,8 +8,7 @@
         <version>0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-  
-    <groupId>com.ardor3d</groupId>
+
     <artifactId>ardor3d-android</artifactId>
     <packaging>jar</packaging>
     <name>Ardor 3D Android</name>
