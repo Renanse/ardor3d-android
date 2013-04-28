@@ -48,7 +48,7 @@ public class AndroidCanvasRenderer implements CanvasRenderer {
 
     public AndroidCanvasRenderer(final Scene scene) {
         _scene = scene;
-        _renderer = new AndroidRenderer();
+        _renderer = createRenderer();
 
         /** Set up a default camera. */
         _camera.setProjectionMode(ProjectionMode.Perspective);
@@ -59,6 +59,11 @@ public class AndroidCanvasRenderer implements CanvasRenderer {
         final Vector3 up = new Vector3(0.0f, 1.0f, 0.0f);
         final Vector3 dir = new Vector3(0.0f, 0f, -1.0f);
         _camera.setFrame(loc, left, up, dir);
+    }
+
+    @Override
+    public AndroidRenderer createRenderer() {
+        return new AndroidRenderer();
     }
 
     public void init(final DisplaySettings settings, final boolean doSwap) {
